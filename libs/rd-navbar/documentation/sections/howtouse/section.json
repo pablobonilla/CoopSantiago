@@ -1,0 +1,66 @@
+{
+	"id":"howtouse",
+	"translations":
+	{
+		"en": "How to use the script?",
+		"ru":"Как использовать скрипт?"
+	},
+  "articles": [
+	  {
+		  "id": "general",
+		  "translations": {
+	  		 	"en": "General principles",
+			 	"ru": "Общие принципы"
+		  }
+	  },
+	  {
+		  "id": "classes",
+		  "translations": {
+		  		"en": "Class Map",
+			  	"ru": "Карта классов"
+		  }
+	  },
+	  {
+		  "id": "layouts",
+		  "translations": {
+		  		"en": "Adjustment of the layouts",
+			 	"ru": "Настройка лейаутов"
+		  }
+	  },
+	  {
+		  "id": "stickup",
+		  "translations": {
+		  		"en": "Sticky panel setting",
+			  	"ru": "Настройка прилипающей панели"
+		  }
+	  },
+	  {
+		  "id": "navigation",
+		  "translations": {
+		  		"en": "Navigation setting",
+			  	"ru": "Настройка навигации"
+		  }
+	  },
+	  {
+		  "id": "toggles",
+		  "translations": {
+		  		"en": "Setting switches (toggles)",
+			  	"ru": "Настройка переключателей (тоглов)"
+		  }
+	  },
+	  {
+		  "id": "links",
+		  "translations": {
+		  		"en": "Linker Adjustment",
+			  	"ru": "Настройка линковщика"
+		  }
+	  },
+	  {
+		  "id": "onepage",
+		  "translations": {
+		  		"en": "Single page navigation adjustment",
+			  	"ru": "Настройка одностраничной навигации"
+		  }
+	  }
+  ]
+}

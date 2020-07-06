@@ -1,0 +1,11 @@
+{
+	"id":"example",
+	"translations":
+	{
+		"en":"Connection example",
+		"ru":"Пример подключения"
+	},
+  "articles": {
+
+  }
+}

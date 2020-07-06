@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”description” content="Cooperativa Santiago Apostol.- Sirviendo desde el Corazón">
+    <meta name="keywords" content="cooperativa, coopsantiago, préstamos,ahorros,créditos,productos,servicios,calidad,excelencia,innovación,emprendedores,mipymes,inversiones,certificados financieros,cuenta de aportaciones,calculadora de prestamos,blog,socio,sucursales,código de buen gobierno,consejo de administración,opinión de la presidencia,calculadora de préstamos,inmuebles en venta,reglamentos de préstamos,solicitud de préstamos,historias de éxito,equipo gerencial,cómo hacerte socio,consulta en línea,preguntas frecuentes,revista informativa,modelcoop">
+    <meta name="author" content="">
+
+    <title>CoopSantiago</title>
+
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="plugins/bootstrapvalidator/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="plugins/select2/dist/css/select2.bootstrap4.min.css">
+    <link rel="stylesheet" href="css/stylec3db.css?v=3.0">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+
+</head>
+
+<body class="main-content container">
+
+    <wrapper class="d-block flex-column">
+
+        <div class="hide-tab" id="tab_7"></div>
+        <div class="row mt-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12" align="center">
+                <div class="titleGeneric my-4" style="font-size: xx-large;">Calculadora de préstamos</div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-11 col-md-11">
+                <div class="containerGenericCalculadora">
+                    <div class="selectContainerAll mt-2 mb-2 align-middle">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="labelCalculadora col-4 mt-1">Tipo de préstamo: </label>
+                            <div class="col-8">
+                                <select id="loan_type" class="form-control" title="" onChange="setMemberType(this.value)" aria-describedby="loan_type">
+                                    <option value="0" selected>Seleccione un tipo de préstamo</option>
+                                    
+                                            <option value="1">Préstamo Hipotecario</option>
+                                        
+                                            <option value="5">Línea de Créditos Hipotecaria</option>
+                                        
+                                            <option value="6">Préstamo Emprendedores Mipymes</option>
+                                        
+                                            <option value="7">Crédito Especial</option>
+                                        
+                                            <option value="8">Préstamo Coofamiliar</option>
+                                        
+                                            <option value="14">Prestamo Solidario Sobre Garantía de Franja</option>
+                                        
+                                            <option value="4">Préstamo Solidario</option>
+                                        
+                              </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selectContainerAll mt-2 mb-2 align-middle">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="labelCalculadora col-4 mt-1">Tipo de membresía: </label>
+                            <div class="col-8">
+                                <select id="member_type" class="form-control" title="" onChange="setInterestRate()">
+                                    <option value="-1">Seleccione un tipo de membresía</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selectContainerAll mt-2 mb-2 align-middle">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="labelCalculadora col-4 mt-1">Tasa de interés (%): </label>
+                            <div class="col-8">
+                                <input class="inputCalculadora form-control" placeholder="0 %" id="loanRate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selectContainerAll mt-2 mb-2 align-middle">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="labelCalculadora col-4 mt-1">Monto del préstamo: </label>
+                            <div class="col-8">
+                                <input class="inputCalculadora form-control" placeholder="RD$ 0.00" id="loanAmount">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selectContainerAll mt-2 mb-2 align-middle">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="labelCalculadora col-4 mt-1"># de Meses para pagar: </label>
+                            <div class="col-8">
+                                <input class="inputCalculadora form-control" placeholder="0" id="loanMonth">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selectContainerAll mt-2 mb-2 align-middle">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="labelCalculadora col-4 mt-1">Fecha inicial: </label>
+                            <div class="col-8">
+                                <input class="inputCalculadora form-control" placeholder="Seleccionar fecha" id="loanDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <div id="errorBox"></div>
+                        <div class="botonGeneric botonGreen2" onClick="calculatePayments()">Calcular préstamo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loanNumbers" class="mt-3 mb-3"></div>
+        </div>
+</body>
+<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<script src="bower_components/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/popper.min.js" type="text/javascript"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="plugins/bootstrapvalidator/bootstrapValidator.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="plugins/select2/dist/js/select2.min.js"></script>
+<script type="text/javascript" src="plugins/inputmask/dist/jquery.inputmask.bundle.js"></script>
+<script src="plugins/moment/moment.js" type="text/javascript"></script>
+<script src="plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<script src="js/utilities6d8b.js?v={ts%20'2020-06-29%2017:30:21'}" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function() {
+
+
+        $('#nav_no_mostrar').hide();
+
+        $('.bars-menu').on('click', function(event) {
+            $('#nav_no_mostrar').slideToggle();
+            $(window).scrollTop(0);
+        });
+
+    });
+</script>
+
+
+
+</html>
+
+
+<script type="text/javascript">
+    var onloadCallback = function() {
+        var widget = grecaptcha.render(document.getElementById('grecaptcha'), {
+            'sitekey': '6LdcgAAVAAAAAFbDuoAuFsP-BpAvi-2l0foIQr0A',
+            'theme': 'light',
+            'callback': function(response) {
+                $('#googlerecaptcha').val(grecaptcha.getResponse(widget));
+            }
+        });
+    };
+</script>
+<script src="../www.google.com/recaptcha/api85f1.js?onload=onloadCallback&amp;render=explicit" async defer></script>
+
+<script type="text/javascript">
+    var loanData;
+
+
+    $(document).ready(function() {
+        scrollToTop();
+
+        $('.hide-tab').hide();
+
+        updateContent();
+
+        $('.date').datepicker({
+            dateFormat: 'mm-dd-yy',
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+        });
+
+        $('.select2').select2({
+            resolve: 'width',
+            width: '100%',
+        });
+
+        $('.phone').val("").inputmask("(999)999-9999", {
+            "placeholder": "(___)___-____"
+        });
+
+        $('#document_number').val("").inputmask("999-9999999-9", {
+            "placeholder": "___-_______-_"
+        });
+
+        $('#document_type').on('change', function(event) {
+            event.preventDefault();
+            let value = $('#document_type option:selected').text();
+
+            $('.country-selector').hide();
+
+            if (value.trim() == 'CEDULA DE IDENTIDAD') {
+                $('#document_number').val("").inputmask("999-9999999-9", {
+                    "placeholder": "___-_______-_"
+                });
+                $('#document_number').attr('placeholder', 'Ej: XXX-XXXXXXX-X');
+            } else if (value.trim() == 'RNC') {
+                $('#document_number').val("").inputmask("9-99-99999-9", {
+                    "placeholder": "_-__-_____-_"
+                });
+                $('#document_number').attr('placeholder', 'Ej: XXX-XXXXX-X');
+            } else if (value.trim() == 'PASAPORTE') {
+                $('#document_number').val("").inputmask("**-************", {
+                    "placeholder": "__-____________"
+                });
+                $('#document_number').attr('placeholder', 'Ej: XX-XXXXXXXXXXXX');
+                $('.country-selector').show();
+            }
+        });
+
+        $('.tab-link').on('click', function(event) {
+            let tab = $(this).attr('class').split(' ')[0];
+
+            navigateToTab(tab);
+        });
+
+
+        $('#preaffiliationForm').bootstrapValidator({
+            submitHandler: function(validator, form, submitButton) {
+                var formData = new FormData(document.getElementById("preaffiliationForm"));
+                //console.log(form)
+                $.ajax({
+                    url: '/preafilliation_process.cfm',
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    success: function(data) {
+                        if (data.ERROR == false) {
+                            $("#preafilliationMsgBox").html('<div class="alert alert-success">Su solicitud ha sido enviada satisfactoriamente. Nos pondremos en contacto con usted lo antes posible.</div>');
+                            $('#preaffiliationForm')[0].reset();
+                        } else {
+                            $("#preafilliationMsgBox").html('<div class="alert alert-danger">' + data.ERROR_MSG + '</div>');
+                        }
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+
+                });
+            },
+            fields: {
+                document_type: {
+                    validators: {
+                        callback: {
+                            message: 'Debe de seleccionar una opción.',
+                            callback: function(value, validator) {
+                                return value != -1;
+                            }
+                        }
+                    },
+                },
+                names: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        }
+                    }
+                },
+                last_names: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        }
+                    }
+                },
+                address: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        }
+                    }
+                },
+                document_number: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        },
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        },
+                        emailAddress: {
+                            message: 'El campo es inválido.'
+                        }
+                    }
+                },
+                work_place: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        }
+                    }
+                },
+                charge: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        }
+                    }
+                },
+                salary: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El campo es requerido, no puede estar vacío.'
+                        }
+                    }
+                },
+
+                captcha: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Debe digitar el texto que se muestra en la imagen'
+                        }
+                    }
+                }
+            }
+        });
+
+        $('#solicitudPresForm').bootstrapValidator({
+            submitHandler: function(validator, form, submitButton) {
+                var formData = new FormData(document.getElementById("solicitudPresForm"));
+                //console.log(form)
+                $.ajax({
+                    url: 'proceso_solicitud_prestamo.cfm',
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    success: function(data) {
+
+                        if (data.ERROR == false) {
+                            $("#applicationMsgBox").html('<div class="alert alert-success">Su solicitud ha sido enviada satisfactoriamente. Nos pondremos en contacto con usted lo antes posible</div>');
+                            $('#solicitudPresForm').data('bootstrapValidator').resetForm(true);
+                            $('#solicitudPresForm')[0].reset();
+                            grecaptcha.reset();
+                        } else {
+                            $("#applicationMsgBox").html('<div class="alert alert-danger">' + data.ERROR_MSG + '</div>');
+                            $(".btnLoan").prop("disabled", false);
+                            grecaptcha.reset();
+                        }
+
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+
+                });
+            },
+            fields: {
+                full_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El nombre completo es requerido'
+                        }
+                    }
+                },
+                address: {
+                    validators: {
+                        notEmpty: {
+                            message: 'La direcci&oacute;n es requerida'
+                        }
+                    }
+                },
+                membership_number: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El No. de socio es requerido'
+                        },
+                        digits: {
+                            message: 'Debe ser car&aacute;cteres numéricos'
+                        }
+                    }
+                },
+
+                id_card: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El No. de cédula es requerido'
+                        },
+                        regexp: {
+                            regexp: /\b\d{3}[-]\d{7}[-]\d{1}\b/,
+                            message: 'El No. de cédula debe ser con el formato xxx-xxxxxxx-x',
+                        }
+                    }
+                },
+                birthdate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'La fecha de nacimiento es requerida'
+                        },
+                        date: {
+                            format: 'MM/DD/YYYY',
+                            message: 'La fecha de nacimiento debe ser escrita mes/d&iacute;a/a&ntilde;o'
+                        }
+
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El email es requerido'
+                        },
+                        emailAddress: {
+                            message: 'El email debe ser v&aacute;lido'
+                        }
+                    }
+                },
+                mobile_phone: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El celular es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El No. de celular debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+                residential_phone: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El teléfono es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El No. de teléfono debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+                amount_to_request: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El monto a solitiar es requerido'
+                        },
+                        numeric: {
+                            message: 'Debe escribir solo n&uacute;meros',
+                            thousandsSeparator: '',
+                            decimalSeparator: '.'
+                        }
+                    }
+                },
+                loan_term: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El plazo del péstamo es requerido'
+                        },
+                        integer: {
+                            message: 'Debe escribir solo n&uacute;meros',
+                        }
+                    }
+                },
+                type_of_fee: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El objetivo del préstamo es requerido'
+                        }
+                    }
+                },
+                name_1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El nombre es requerido'
+                        }
+                    }
+                },
+                phone_1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El celular es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El No. de celular debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+                name_2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El nombre es requerido'
+                        }
+                    }
+                },
+                phone_2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El celular es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El No. de celular debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+                name_3: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El nombre es requerido'
+                        }
+                    }
+                },
+                phone_3: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El celular es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El No. de celular debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+                name_4: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El nombre es requerido'
+                        }
+                    }
+                },
+                phone_4: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El celular es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El No. de celular debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+
+
+
+                occupation: {
+                    validators: {
+                        notEmpty: {
+                            message: 'La actividad u ocupaci&oacute;n es requerida'
+                        }
+                    }
+                },
+                monthly_income: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El ingreso mensual  es requerido'
+                        },
+                        numeric: {
+                            message: 'Debe escribir solo n&uacute;meros',
+                            // The default separators
+                            thousandsSeparator: '',
+                            decimalSeparator: '.'
+                        }
+                    }
+                },
+                time_working: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El tiempo laborando de la empresa es requerido'
+                        }
+                    }
+                },
+
+
+                company_phone: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El teléfono de la empresa es requerido'
+                        },
+                        regexp: {
+                            regexp: /^\b\d{3}[-]\d{3}[-]\d{4}\b$/,
+                            message: 'El teléfono debe ser escrito xxx-xxx-xxxx',
+                        }
+                    }
+                },
+
+                number_of_dependents: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El n&uacute;mero de dependientes es requerido'
+                        },
+                        integer: {
+                            message: 'Debe escribir solo n&uacute;meros',
+                        }
+                    }
+                },
+                other_monthly_income: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Otros ingresos  es requerido'
+                        },
+                        numeric: {
+                            message: 'Debe escribir solo n&uacute;meros',
+                            // The default separators
+                            thousandsSeparator: '',
+                            decimalSeparator: '.'
+                        }
+                    }
+                },
+                monthly_spending_on_housing: {
+                    validators: {
+                        notEmpty: {
+                            message: 'El gasto mensual  es requerido'
+                        },
+                        numeric: {
+                            message: 'Debe escribir solo n&uacute;meros',
+                            // The default separators
+                            thousandsSeparator: '',
+                            decimalSeparator: '.'
+                        }
+                    }
+                },
+
+                captcha: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Debe digitar el texto que se muestra en la imagen'
+                        }
+                    }
+                }
+            }
+        });
+
+
+        $("#trabajaConyugueSi").click(function() {
+            $("#how_much_earn").prop("disabled", false);
+        });
+        $("#trabajaConyugueNo").click(function() {
+            $("#how_much_earn").prop("disabled", true);
+        });
+
+        $("#garantePrestamoSi").click(function() {
+            $("#guarantor_loan_amount").prop("disabled", false);
+        });
+        $("#garantePrestamoNo").click(function() {
+            $("#guarantor_loan_amount").prop("disabled", true);
+        });
+
+        loanData = eval({
+            "1": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }, {
+                    "ID": 2,
+                    "NAME": "Tipo B"
+                }, {
+                    "ID": 3,
+                    "NAME": "Tipo C"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 13.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "2": {
+                        "RATE": 15.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "3": {
+                        "RATE": 18.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            },
+            "14": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }, {
+                    "ID": 2,
+                    "NAME": "Tipo B"
+                }, {
+                    "ID": 3,
+                    "NAME": "Tipo C"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 15.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "2": {
+                        "RATE": 18.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "3": {
+                        "RATE": 21.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            },
+            "4": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }, {
+                    "ID": 2,
+                    "NAME": "Tipo B"
+                }, {
+                    "ID": 3,
+                    "NAME": "Tipo C"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 24.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "2": {
+                        "RATE": 27.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "3": {
+                        "RATE": 30.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            },
+            "5": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 13.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            },
+            "6": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }, {
+                    "ID": 2,
+                    "NAME": "Tipo B"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 15.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "2": {
+                        "RATE": 18.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            },
+            "7": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 24.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            },
+            "8": {
+                "MEMBER_TYPES": [{
+                    "ID": 1,
+                    "NAME": "Tipo A"
+                }, {
+                    "ID": 2,
+                    "NAME": "Tipo B"
+                }],
+                "INTEREST_RATES": {
+                    "1": {
+                        "RATE": 24.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    },
+                    "2": {
+                        "RATE": 27.0,
+                        "MAX_AMOUNT": -1.0,
+                        "MAX_AMOUNT_FORMATTED": "RD $-1.00"
+                    }
+                }
+            }
+        });
+    });
+
+    function navigateToTab(tab) {
+        $('.link-servicios, .link-prestamos, .link-ahorros-inversiones, .link-reglamentos-prestamos, .link-solicitud-prestamos, .link-calculadora-prestamos').css('background-color', '');
+        $('.link-servicios, .link-prestamos, .link-ahorros-inversiones, .link-reglamentos-prestamos, .link-solicitud-prestamos, .link-calculadora-prestamos').css('color', '');
+        $('.tab-link').removeClass("botonLeftON");
+        $('.tab-link').removeClass("botonLeftOFF");
+        $('.tab-link').addClass("botonLeftOFF");
+
+        $(this).removeClass("botonLeftOFF");
+        $(this).addClass("botonLeftON");
+
+        $('#tab_content').html("");
+
+        $('.tab-link').removeClass("botonLeftON");
+        $('.tab-link').removeClass("botonLeftOFF");
+        $('.tab-link').addClass("botonLeftOFF");
+
+        $('.' + tab).removeClass("botonLeftOFF");
+        $('.' + tab).addClass("botonLeftON");
+
+        switch (tab) {
+            case 'tab-1':
+                $('#select').val("tab-1");
+                $('#tab_content').html($('#tab_1').html());
+                $('.link-servicios').css('background-color', '#079647');
+                $('.link-servicios').css('color', 'white');
+                updateNavigationBar('Servicios', '', 'Productos & servicios,Servicios');
+                break;
+
+            case 'tab-2':
+                $('#select').val("tab-2");
+                $('#tab_content').html($('#tab_2').html());
+                $('.link-prestamos').css('background-color', '#079647');
+                $('.link-prestamos').css('color', 'white');
+                updateNavigationBar('Préstamos', '', 'Productos & servicios,Préstamos');
+                break;
+
+            case 'tab-3':
+                $('#select').val("tab-3");
+                $('#tab_content').html($('#tab_3').html());
+                $('.link-ahorros-inversiones').css('background-color', '#079647');
+                $('.link-ahorros-inversiones').css('color', 'white');
+                updateNavigationBar('Ahorros e inversiones', '', 'Productos & servicios,Ahorros e inversiones');
+                break;
+
+            case 'tab-4':
+                $('#select').val("tab-4");
+                $('#tab_content').html($('#tab_4').html());
+                $('.link-reglamentos-prestamos').css('background-color', '#079647');
+                $('.link-reglamentos-prestamos').css('color', 'white');
+                updateNavigationBar('Reglamentos de préstamos', '', 'Productos & servicios,Reglamentos de préstamos');
+                break;
+
+
+            case 'tab-5':
+                // $('#select').val("tab-5");
+                // $('#tab_content').html($('#tab_5').html());
+                // $('.link-formulario-preafiliacion').css('background-color', '#079647');
+                // $('.link-formulario-preafiliacion').css('color', 'white');
+                // updateNavigationBar('Formulario de preafiliación', '', 'Productos & servicios,Formulario de preafiliación');
+                location.href = 'servicios4ab4.html?tab=5';
+                break;
+
+            case 'tab-6':
+                // $('#select').val("tab-6");
+                // $('#tab_content').html($('#tab_6').html());
+                // $('.link-solicitud-prestamos').css('background-color', '#079647');
+                // $('.link-solicitud-prestamos').css('color', 'white');
+                // updateNavigationBar('Solicitud de préstamos', '', 'Productos & servicios,Solicitud de préstamos');
+                // $("#birthdate").datepicker();
+                location.href = 'serviciosdf1f.html?tab=6';
+                break;
+
+
+            case 'tab-7':
+                $('#select').val("tab-7");
+                $('#tab_content').html($('#tab_7').html());
+                $('.link-calculadora-prestamos').css('background-color', '#079647');
+                $('.link-calculadora-prestamos').css('color', 'white');
+                updateNavigationBar('Calculadora de préstamos', '', 'Productos & servicios,Calculadora de préstamos');
+                $("#loanDate").datepicker();
+                break;
+            case 'tab-8':
+                location.href = 'serviciosac98.html?tab=8';
+                break;
+        }
+    }
+
+    function updateContent() {
+        $('.link-servicios, .link-prestamos, .link-ahorros-inversiones, .link-reglamentos-prestamos, .link-solicitud-prestamos, .link-calculadora-prestamos').css('background-color', '');
+        $('.link-servicios, .link-prestamos, .link-ahorros-inversiones, .link-reglamentos-prestamos, .link-solicitud-prestamos, .link-calculadora-prestamos').css('color', '');
+
+        let tab = 7;
+
+        $('#tab_content').html($('#tab_' + tab).html());
+
+        switch (tab) {
+            case 1:
+                $('#select').val("tab-1");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-1').removeClass("botonLeftOFF");
+                $('.tab-1').addClass("botonLeftON");
+                $('.link-servicios').css('background-color', '#079647');
+                $('.link-servicios').css('color', 'white');
+                updateNavigationBar('Servicios', '', 'Productos & servicios,Servicios');
+                break;
+
+            case 2:
+                $('#select').val("tab-2");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-2').removeClass("botonLeftOFF");
+                $('.tab-2').addClass("botonLeftON");
+                $('.link-prestamos').css('background-color', '#079647');
+                $('.link-prestamos').css('color', 'white');
+                updateNavigationBar('Préstamos', '', 'Productos & servicios,Préstamos');
+                break;
+
+            case 3:
+                $('#select').val("tab-3");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-3').removeClass("botonLeftOFF");
+                $('.tab-3').addClass("botonLeftON");
+                $('.link-ahorros-inversiones').css('background-color', '#079647');
+                $('.link-ahorros-inversiones').css('color', 'white');
+                updateNavigationBar('Ahorros e inversiones', '', 'Productos & servicios,Ahorros e inversiones');
+                break;
+
+            case 4:
+                $('#select').val("tab-4");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-4').removeClass("botonLeftOFF");
+                $('.tab-4').addClass("botonLeftON");
+                $('.link-reglamentos-prestamos').css('background-color', '#079647');
+                $('.link-reglamentos-prestamos').css('color', 'white');
+                updateNavigationBar('Reglamentos de préstamos', '', 'Productos & servicios,Reglamentos de préstamos');
+                break;
+
+
+            case 5:
+                $('#select').val("tab-5");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-5').removeClass("botonLeftOFF");
+                $('.tab-5').addClass("botonLeftON");
+                $('.link-solicitud-prestamos').css('background-color', '#079647');
+                $('.link-solicitud-prestamos').css('color', 'white');
+                updateNavigationBar('Formulario de preafiliación', '', 'Productos & servicios,Formulario de preafiliación');
+                break;
+
+            case 6:
+                $('#select').val("tab-6");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-6').removeClass("botonLeftOFF");
+                $('.tab-6').addClass("botonLeftON");
+                $('.link-solicitud-prestamos').css('background-color', '#079647');
+                $('.link-solicitud-prestamos').css('color', 'white');
+                updateNavigationBar('Solicitud de préstamos', '', 'Productos & servicios,Solicitud de préstamos');
+                $("#birthdate").datepicker();
+                break;
+
+
+            case 7:
+                $('#select').val("tab-7");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-7').removeClass("botonLeftOFF");
+                $('.tab-7').addClass("botonLeftON");
+                $('.link-calculadora-prestamos').css('background-color', '#079647');
+                $('.link-calculadora-prestamos').css('color', 'white');
+                updateNavigationBar('Calculadora de préstamos', '', 'Productos & servicios,Calculadora de préstamos');
+                $("#loanDate").datepicker();
+                break;
+            case 8:
+                $('#select').val("tab-8");
+                $('.tab-link').removeClass("botonLeftON");
+                $('.tab-link').removeClass("botonLeftOFF");
+                $('.tab-link').addClass("botonLeftOFF");
+
+                $('.tab-8').removeClass("botonLeftOFF");
+                $('.tab-8').addClass("botonLeftON");
+                $('.link-cla').css('background-color', '#079647');
+                $('.link-cla').css('color', 'white');
+                updateNavigationBar('CLA en Línea', '', 'Productos & servicios,CLA en Línea');
+                break;
+        }
+    }
+
+    function setMemberType(loanId) {
+        $("#member_type").html('');
+        for (i = 0; i < loanData[loanId].MEMBER_TYPES.length; i++) {
+            var option = '<option value=' + loanData[loanId].MEMBER_TYPES[i].ID + '>' + loanData[loanId].MEMBER_TYPES[i].NAME + '</option>';
+
+            $("#member_type").append(option);
+        }
+        setInterestRate();
+    }
+
+    function setInterestRate() {
+        var membershipId = $("#member_type").val();
+        var loanId = $("#loan_type").val();
+
+        if (loanData[loanId] != null && loanData[loanId].INTEREST_RATES[membershipId] != null) {
+            $("#loanRate").val(loanData[loanId].INTEREST_RATES[membershipId].RATE);
+        } else {
+            $("#loanRate").val('-1');
+        }
+    }
+
+    function calculatePayments() {
+        var loanId = $("#loan_type").val();
+        var membershipId = $("#member_type").val();
+        var amount = $("#loanAmount").val();
+        var rate = $("#loanRate").val();
+        var numpay = $("#loanMonth").val();
+        //var feeType = $("#feeType").val();
+        var loanDate = $("#loanDate").val();
+        var loanDateObj = new Date(loanDate);
+        $("#errorBox").html('');
+
+        if (loanData[loanId] != null && loanData[loanId].INTEREST_RATES[membershipId] != null) {
+            var maxAmount = loanData[loanId].INTEREST_RATES[membershipId].MAX_AMOUNT;
+            var maxAmountFormatted = loanData[loanId].INTEREST_RATES[membershipId].MAX_AMOUNT_FORMATTED;
+            var loanMinimun = loanData[loanId].INTEREST_RATES[membershipId].MIN_AMOUNT;
+            var loanMinimunFormatted = loanData[loanId].INTEREST_RATES[membershipId].MIN_AMOUNT_FORMATTED;
+        } else {
+            var maxAmount = -1;
+            var maxAmountFormatted = -1;
+            var loanMinimun = -1;
+            var loanMinimunFormatted = 'RD $0.00';
+        }
+
+        var error = false;
+        var errorMessage = 'Por favor verificar lo siguiente:'
+        if (isNaN(amount) || amount == "") {
+            errorMessage += "<br>- El monto debe ser un número y no podrá contener comas.";
+            error = true;
+        }
+        if (isNaN(rate) || rate == "") {
+            errorMessage += "<br>- La tasa de interés debe ser un número y no podrá contener comas.";
+            error = true;
+        }
+        if (isNaN(numpay) || numpay == "") {
+            errorMessage += "<br>- La cantidad de meses debe ser un valor numérico.";
+            error = true;
+        }
+        if (maxAmount != -1 && maxAmount != "" && parseFloat(amount) > maxAmount) {
+            errorMessage += "<br>- El monto no podrá ser mayor de " + maxAmountFormatted + " para este tipo de prestamo.";
+            error = true;
+        }
+        if (parseFloat(amount) < loanMinimun) {
+            errorMessage += "<br>- El monto no podrá ser menor de" + loanMinimunFormatted + " para este tipo de prestamo.";
+            error = true;
+        }
+
+        if (loanDate == "") {
+            errorMessage += "<br>- Debe seleccionar una fecha de inicio.";
+            error = true;
+        }
+        if (error == false) {
+            $("#loanNumbers").html('<table width="100%" class="table table-responsive table-striped" cellpadding="0" cellspacing="0"><thead><tr class="tableHeader"><th>No de Cuota</th><th>Abono Capital</th><th>Pago de interes</th><th>Pago Mensual</th><th>Balance</th></tr></thead><tbody id="loanPaymentTable"></tbody></table><br><br>')
+
+            rate = rate / 100;
+            var monthly = rate / 12;
+            var payment = ((amount * monthly) / (1 - Math.pow((1 + monthly), -numpay)));
+            var total = payment * numpay;
+            var interest = total - amount;
+
+            var output = "";
+            var detail = "";
+            newPrincipal = amount;
+            var nextMonthDate = AddMonth(loanDate, 1);
+            var i = 1;
+            var months = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+            var totalInterest = 0;
+            var totalAmount = 0;
+            var totalPayments = 0;
+
+            while (i <= numpay) {
+                newInterest = monthly * newPrincipal;
+                reduction = payment - newInterest;
+                newPrincipal = newPrincipal - reduction;
+                totalInterest += newInterest;
+                totalAmount += reduction;
+                totalPayments += payment;
+                detail += "<tr><td>" + months[nextMonthDate.getMonth()] + " " + nextMonthDate.getFullYear() + "</td><td align='right'>RD $" + fixVal(reduction, 0, 2, ' ') + "</td> \
+                            <td align='right'>RD $" + fixVal(newInterest, 0, 2, ' ') + "</td> \
+                            <td align='right'>RD $" + fixVal(payment, 0, 2, ' ') + "</td> \
+                            <td align='right'>RD $" + fixVal(newPrincipal, 0, 2, ' ') + "</td></tr>";
+
+                i++;
+                nextMonthDate = AddMonth(nextMonthDate, 1);
+            }
+            detail += "<tr class='tdBold'><td><b>Totales</b></td><td align='right'><b>RD $" + fixVal(totalAmount, 0, 2, ' ') + "</b></td><td align='right'><b>RD $" + fixVal(totalInterest, 0, 2, ' ') + "</b></td><td align='right'><b>RD $" + fixVal(totalPayments, 0, 2, ' ') + "</b></td><td></td></tr>"
+            $("#loanPaymentTable").append(detail)
+
+        } else {
+            $("#errorBox").html('<div class="alert alert-danger">' + errorMessage + '</div>');
+        }
+
+    }
+
+    function fixVal(value, numberOfCharacters, numberOfDecimals, padCharacter) {
+        var i, stringObject, stringLength, numberToPad; // define local variables
+
+        value = value * Math.pow(10, numberOfDecimals); // shift decimal point numberOfDecimals places
+        value = Math.round(value); //  to the right and round to nearest integer
+
+        stringObject = new String(value); // convert numeric value to a String object
+        stringLength = stringObject.length; // get length of string
+        while (stringLength < numberOfDecimals) { // pad with leading zeroes if necessary
+            stringObject = "0" + stringObject; // add a leading zero
+            stringLength = stringLength + 1; //  and increment stringLength variable
+        }
+
+        if (numberOfDecimals > 0) { // now insert a decimal point
+            stringObject = stringObject.substring(0, stringLength - numberOfDecimals) + "." +
+                stringObject.substring(stringLength - numberOfDecimals, stringLength);
+        }
+
+        if (stringObject.length < numberOfCharacters && numberOfCharacters > 0) {
+            numberToPad = numberOfCharacters - stringObject.length; // number of leading characters to pad
+            for (i = 0; i < numberToPad; i = i + 1) {
+                stringObject = padCharacter + stringObject;
+            }
+        }
+
+        return addCommas(stringObject); // return the string object
+    }
+
+    function addCommas(nStr) {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
+
+    function AddMonth(strDate, intNum) {
+        sdate = new Date(strDate);
+        sdate.setMonth(sdate.getMonth() + intNum);
+        return sdate;
+    }
+
+    function daysInMonth(month, year) {
+        return new Date(year, month, 0).getDate();
+    }
+
+    function DateDiff(date1, date2) {
+        var datediff = date1.getTime() - date2.getTime();
+        return (datediff / (24 * 60 * 60 * 1000));
+    }
+
+    function updateCivilStatus() {
+        if ($('#civil_status_id option:selected').text() == 'CASADO (A)') {
+            $('.married-surname').show();
+        } else {
+            $('.married-surname').hide();
+        }
+    }
+</script>
