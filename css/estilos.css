@@ -9493,15 +9493,14 @@ a.text-dark:hover, a.text-dark:focus {
 .Coop {
   background-color: #27b91a; }
 
+.Coop2 {
+  background-color: #27b91a; }
+
 /* =============================================
   X. Show de las Medias Queries
   ============================================= */
-/* --------------Vista Sm ------------- */
-@media (min-width: 476px) {
-  .Coop {
-    font-size: 20px; } }
 /* --------------Vista Md ------------- */
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .proyectos {
     height: 37rem; }
 
@@ -9510,7 +9509,11 @@ a.text-dark:hover, a.text-dark:focus {
   .caracteristicas .col:nth-child(4n+4) {
     border-right: none; }
   .caracteristicas .col:nth-child(n+5) {
-    border-bottom: none; } }
+    border-bottom: none; }
+
+  .Coop2 .letreroCoop {
+    background-color: blue;
+    font-size: 29px; } }
 /* --------------Vista Lg ------------- */
 @media (min-width: 992px) {
   .disenoAdmin {
@@ -9523,5 +9526,9 @@ a.text-dark:hover, a.text-dark:focus {
 @media (min-width: 1200px) {
   .caracteristicas .container-lg {
     max-width: 960px; } }
+/* --------------Vista Sm ------------- */
+@media screen and (min-width: 476px) {
+  .Coop2 .letreroCoop {
+    font-size: 15px; } }
 
 /*# sourceMappingURL=estilos.css.map */

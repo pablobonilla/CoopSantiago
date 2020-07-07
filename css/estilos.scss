@@ -293,24 +293,20 @@ $spacers: ( 0: 0, 1: ( $spacer * 0.25), 2: ( $spacer * 0.5), 3: $spacer, 4: ( $s
     background-color: rgb(39, 185, 26);
 }
 
+.Coop2 {
+    background-color: rgb(39, 185, 26);
+}
 
 /* =============================================
   X. Show de las Medias Queries
   ============================================= */
 
 
-/* --------------Vista Sm ------------- */
-
-@media (min-width: 476px) {
-    .Coop {
-        font-size: 20px;
-    }
-}
 
 
 /* --------------Vista Md ------------- */
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .proyectos {
         height: 37rem;
     }
@@ -326,6 +322,14 @@ $spacers: ( 0: 0, 1: ( $spacer * 0.25), 2: ( $spacer * 0.5), 3: $spacer, 4: ( $s
                 border-bottom: none;
             }
         }
+    }
+
+    .Coop2 .letreroCoop{
+        
+        background-color: blue;
+           
+        
+            font-size: 29px;
     }
 }
 
@@ -349,4 +353,18 @@ $spacers: ( 0: 0, 1: ( $spacer * 0.25), 2: ( $spacer * 0.5), 3: $spacer, 4: ( $s
     .caracteristicas .container-lg {
         max-width: 960px;
     }
+}
+
+/* --------------Vista Sm ------------- */
+
+@media screen and (min-width: 476px) {
+    .Coop2 .letreroCoop{
+        
+       
+            font-size: 15px;
+        
+        
+    }
+
+    
 }
